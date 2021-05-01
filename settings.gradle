@@ -1,2 +1,63 @@
+import org.gradle.api.initialization.Settings
+
 include ':app'
 rootProject.name = "GradlePractice"
+
+println(":settings.gradle")
+gradle.addBuildListener(new BuildListener() {
+
+    @Override
+    void buildStarted(Gradle gradle) {
+        println("GradlePractice buildStarted")
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+        //初始化完成
+        println("GradlePractice settingsEvaluated")
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+        println("GradlePractice projectsLoaded")
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        //配置完成
+        println("GradlePractice projectsEvaluated")
+        gradle.rootProject.childProjects.each { name, project ->
+            println("   childproject: $name, dir: ${project.projectDir}")
+
+        }
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        //构建完成
+        println("GradlePractice buildFinished")
+    }
+
+    @Override
+    void beforeSettings(Settings settings) {
+        super.beforeSettings(settings)
+    }
+})
+
+
+
+def c = {
+    println("c")
+}
+c()
+
+def cc = { it ->
+    println("it = $it")
+}
+
+def cc1 = {
+    println("it = $it")
+}
+
+cc("aaa")
+cc1("bbb")

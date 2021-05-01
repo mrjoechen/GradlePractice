@@ -24,3 +24,27 @@ allprojects {
 task clean(type: Delete) {
   delete rootProject.buildDir
 }
+
+
+def a = 100
+println(a)
+
+def s = "sss"
+println(s)
+
+def array = [1, 2, 3, 4]
+array.add(5)
+println("array: $array")
+array.each {
+  println("array: $it")
+}
+
+def map = ["name": "abc", "age": 20]
+println("map: $map")
+println("age: ${map["age"]}")
+
+def hello(String name){
+  println("hello, $name")
+}
+
+hello("alpha")
