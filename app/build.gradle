@@ -6,6 +6,11 @@ plugins {
 apply from : "../test.gradle"
 apply plugin: "com.alpha.router"
 
+
+router {
+  wikiDir getRootDir().absolutePath
+}
+
 android {
   compileSdkVersion 30
   buildToolsVersion "30.0.3"
