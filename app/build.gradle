@@ -4,6 +4,7 @@ plugins {
 }
 
 apply from : "../test.gradle"
+// 或者 apply from: project.rootProject.file("test.gradle")
 apply plugin: "com.alpha.router"
 
 
@@ -50,4 +51,18 @@ dependencies {
   testImplementation 'junit:junit:4.+'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+
+task testTask(){
+  doLast {
+    println("testTask")
+  }
+}
+
+task testTaskDepends(){
+  dependsOn testTask
+  doLast {
+    println("testTaskDepends")
+  }
 }

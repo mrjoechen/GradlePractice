@@ -3,7 +3,7 @@ apply plugin: 'groovy'
 
 // 声明仓库的地址
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 

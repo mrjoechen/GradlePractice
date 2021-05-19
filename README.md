@@ -1,7 +1,7 @@
 # GradlePractice
 
-> ./gradle clean
+> ./gradlew clean
 
-> ./gradle projects
+> ./gradlew projects
 
-> ./gradle tasks
+> ./gradlew tasks
